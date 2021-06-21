@@ -7,6 +7,8 @@ module.exports = function(){
 
     router.get('/paypal-token', paypal_controller.getPaypalToken);
     
-
+    router.get('/test', (req,res) => {
+        res.send({hi: 'buddy'})
+    })
     return router;
 }

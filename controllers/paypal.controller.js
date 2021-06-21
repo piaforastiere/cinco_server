@@ -8,10 +8,13 @@ const axios = require('axios')
 var controller = {
 
     getPaypalToken:  async function(req, res) {
-
         let username = process.env.PAYPAL_CLIENT_LIVE
         let password = process.env.SECRET_SECRET_ID_LIVE;
-
+        
+        console.log('aca', username, password);
+        
+        
+        
         (async () => {
             try {
                 const { data : { access_token, token_type, expires_in} } = await axios({
@@ -46,7 +49,8 @@ var controller = {
                 
                 return res.status(400).send({
                     status: "error",
-                    message: "error de paypal revisoar logs",
+                    message: "error de paypal revisoar logs "+username+" "+password+" "+process.env.PORT,
+                    error : error
                 })
             }
         })()
