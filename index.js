@@ -21,7 +21,8 @@ app.use((req, res, next) => {
 app.use('/api', routes())
 
 
-const PORT = process.env.PORT || 8080
-app.listen(process.env.PORT || 8080, function(){
+const port = process.env.PORT || 8080
+
+app.listen(port, () => {
     console.log('Server is running!', PORT);
 });
